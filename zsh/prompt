@@ -1,0 +1,7 @@
+autoload -Uz vcs_info
+precmd() {vcs_info}
+zstyle ':vcs_info:git:*' formats '%F{yellow}  %b%f'
+
+setopt PROMPT_SUBST
+NEWLINE=$'\n'
+PROMPT='%F{magenta}%n %F{cyan}%4~%f${vcs_info_msg_0_}${NEWLINE}%F{red} %f'
