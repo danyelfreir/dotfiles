@@ -1,2 +1,3 @@
-alias ls="ls --color=auto"
+alias ls="exa -lah"
+alias jj="mvn clean package -q && java -cp target/classes:lib/algs4.jar"
 alias reload="source ~/.zshrc"

@@ -1,18 +1,8 @@
-local onedark = require('onedark')
 local lualine = require('lualine')
-
-onedark.setup {
-    style = 'dark',
-    code_style = {
-        keywords = 'italic',
-        functions = 'bold'
-    }
-}
 
 lualine.setup {
       options = {
     icons_enabled = true,
-    theme = 'onedark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -50,5 +40,4 @@ lualine.setup {
   extensions = {}
 }
 
-onedark.load()
 
