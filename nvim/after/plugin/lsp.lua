@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local luasnip = require("luasnip")
 
 lsp.preset("recommended")
 
@@ -8,6 +9,8 @@ lsp.ensure_installed({
     'sumneko_lua',
     'rust_analyzer',
     'clangd',
+    'pyright',
+    'gopls'
 })
 
 -- Fix Undefined global 'vim'
@@ -26,7 +29,17 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ["<Tab>"] = cmp.mapping.confirm(),
+    ["<Tab>"] = cmp.mapping(function (fallback)
+            if cmp.visible() then
+                cmp.confirm({select = true})
+            elseif luasnip.expandable() then
+                luasnip.expand()
+            elseif luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
 })
 
 cmp_mappings['<CR>'] = nil
@@ -54,10 +67,10 @@ lsp.on_attach(function(client, bufnr)
         return
     end
 
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "<leader>h", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)

@@ -6,14 +6,9 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use ''
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
+--  use('navarasu/onedark.nvim')
+  use ({ 'projekt0n/github-nvim-theme' })
+  use('nvim-lualine/lualine.nvim')
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('tpope/vim-fugitive')
   use('mbbill/undotree')
@@ -24,6 +19,7 @@ return require('packer').startup(function(use)
     },
   }
   use('windwp/nvim-autopairs')
+  use('numToStr/Comment.nvim')
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
