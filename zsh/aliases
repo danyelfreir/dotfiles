@@ -1,3 +1,4 @@
 alias ls="exa -lah"
 alias jj="mvn clean package -q && java -cp target/classes:lib/algs4.jar"
 alias reload="source ~/.zshrc"
+alias py="/usr/local/bin/python3.11"

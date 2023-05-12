@@ -1,14 +1,17 @@
 --local onedark = require('onedark')
 local lualine = require('lualine')
-require('github-theme').setup({
-    theme_style="dark_default",
-    keyword_style="italic",
-    function_style="italic",
-    colors = {
-        hint = "orange",
-        error = "#ff0000"
-    },
-})
+require('catppuccin').setup{
+    flavor = "mocha"
+}
+-- require('github-theme').setup({
+--     theme_style="dark_default",
+--     keyword_style="italic",
+--     function_style="italic",
+--     colors = {
+--         hint = "orange",
+--         error = "#ff0000"
+--     },
+-- })
 
 lualine.setup {
       options = {
@@ -50,4 +53,6 @@ lualine.setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+vim.cmd.colorscheme "catppuccin"
 

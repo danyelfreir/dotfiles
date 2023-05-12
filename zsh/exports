@@ -1,7 +1,7 @@
 export GOPATH=$HOME/go 
-export PATH="/usr/local/sbin:$HOME/Library/Python/3.9/bin:/usr/local/opt/openjdk/bin:$GOPATH/bin:/Library/PostgreSQL/14/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin"
+export PATH="/usr/local/opt/binutils/bin:/usr/local/opt/postgresql@15/bin:/usr/local/sbin:$HOME/Library/Python/3.9/bin:/usr/local/opt/openjdk/bin:$GOPATH/bin:/Library/PostgreSQL/14/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin"
 export HOMEBREW_GITHUB_API_TOKEN=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
-export JAVA_HOME=/usr/local/Cellar/openjdk/19/libexec/openjdk.jdk/Contents/Home
+export JAVA_HOME=/usr/local/Cellar/openjdk/20/libexec/openjdk.jdk/Contents/Home
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 export FZF_DEFAULT_OPTS="--preview 'bat --color always {}' --preview-window=up"
 
