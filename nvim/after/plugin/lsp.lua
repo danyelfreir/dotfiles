@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
 local luasnip = require("luasnip")
 
-lsp.preset("minimal")
+lsp.preset("recommended")
 
 lsp.ensure_installed({
     'tsserver',
@@ -17,17 +17,17 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ["<Tab>"] = cmp.mapping(function (fallback)
-            if cmp.visible() then
-                cmp.confirm({select = true})
-            elseif luasnip.expandable() then
-                luasnip.expand()
-            elseif luasnip.jumpable(1) then
-                luasnip.jump(1)
-            else
-                fallback()
-            end
-        end, {'i', 's'}),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            cmp.confirm({ select = true })
+        elseif luasnip.expandable() then
+            luasnip.expand()
+        elseif luasnip.jumpable(1) then
+            luasnip.jump(1)
+        else
+            fallback()
+        end
+    end, { 'i', 's' }),
 })
 
 cmp_mappings['<CR>'] = nil
@@ -40,10 +40,10 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = '»'
     }
 })
 
